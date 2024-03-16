@@ -8,8 +8,9 @@ class MarkovMachine {
   constructor(text) {
     let words = text.split(/[ \r\n]+/);
     this.words = words.filter(c => c !== "");
-    this.makeChains();
+    // this.makeChains();
   }
+
 
   /** set markov chains:
    *
@@ -18,6 +19,15 @@ class MarkovMachine {
 
   makeChains() {
     // TODO
+    let dict = {}
+    for(let i = 0; i <this.words.length; i++){
+      if(!dict[this.words[i]]){
+        dict[this.words[i]] = [this.words[i+1]]
+      } else{
+        dict[this.words[i]].push(this.words[i+1])
+      }
+    }
+    console.log(dict)
   }
 
 
@@ -25,5 +35,18 @@ class MarkovMachine {
 
   makeText(numWords = 100) {
     // TODO
+    text = []
+    for(let i = 0; i< numWords; i++){
+
+    }
   }
 }
+
+
+let mm = new MarkovMachine("the cat in the hat");
+// mm.makeText();
+mm.makeChains()
+// console.log(mm.words)
+
+
+module.export = MarkovMachine
