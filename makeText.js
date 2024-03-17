@@ -4,7 +4,8 @@ const Mk = require('./markov')
 const axios = require('axios')
 const fs = require('node:fs')
 
-async function makeText(args) {      
+async function makeText(args) {    
+    console.log(args)
     if(args[2] == 'file'){
         // File logic
 
@@ -35,3 +36,5 @@ async function makeText(args) {
 
 
 makeText(process.argv);
+
+module.exports = makeText; 
